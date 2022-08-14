@@ -9,7 +9,7 @@ function login () {
         alert ("debe ingresar clave");
     }
     else {
-        location.href='index.html';
+        location.href='https://fixerh.github.io/Proyecto-JaP/index.html';
     }
 }
 document.addEventListener('DOMContentLoaded', ()=>{
