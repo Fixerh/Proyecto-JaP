@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     let usuario = sessionStorage.getItem('usuario');
     if(usuario == null){
         alert('No iniciaste sesion, porfavor iniciar sesion para continuar navegando')
-        location.href='https://fixerh.github.io/Proyecto-JaP/';
+        location.href='login.html';
     }
     else {
         document.getElementById('usuario').innerHTML = usuario;
