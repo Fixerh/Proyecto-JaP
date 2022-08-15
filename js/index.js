@@ -24,5 +24,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }
 
     
-   
+    document.getElementById("cerrar").addEventListener("click", () => {
+        alert('Cierro sesion');
+        sessionStorage.clear();
+        location.href = 'login.html';
+    });
 });   
