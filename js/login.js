@@ -1,21 +1,25 @@
 function login () {
-    let usuario = document.getElementById('username').value;
-    let clave = document.getElementById('clave').value;
+    let usuario = document.getElementById('usuario').value;
+    let contraseña = document.getElementById('contraseña').value;
 
-    if (usuario ==="") {
-        alert ("debe ingresar usuario");
-    }
-    if (clave ==="") {
-        alert ("debe ingresar clave");
+    if (usuario ==="" || contraseña ==="") {
+        document.getElementById('usuario').classList.add('incompleto');
+        document.getElementById('contraseña').classList.add('incompleto');
+        alert ("debe ingresar Usuario y Contraseña ");
+        
     }
     else {
-        location.href='https://fixerh.github.io/Proyecto-JaP/index.html';
+        sessionStorage.setItem('usuario', usuario);
+        location.href='index.html';
     }
+
 }
 document.addEventListener('DOMContentLoaded', ()=>{
     document.getElementById('inicio').addEventListener('click',()=>{
         login();
     })
+
+
 })
 function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
@@ -24,3 +28,13 @@ function onSignIn(googleUser) {
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
   }
+
+function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+        alert("You have been signed out successfully");
+        $(".data").css("display", "none");
+        $(".g-signin2").css("display", "block");
+    });
+}
+  

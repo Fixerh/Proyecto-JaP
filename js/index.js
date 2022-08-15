@@ -12,3 +12,20 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location = "products.html"
     });
 });
+
+document.addEventListener('DOMContentLoaded', ()=>{
+    let usuario = sessionStorage.getItem('usuario');
+    if(usuario == null){
+        alert('No iniciaste sesion, porfavor iniciar sesion para continuar navegando')
+        location.href='login.html';
+    }
+    else {
+        document.getElementById('usuario').innerHTML = usuario;
+    }
+    
+    document.getElementById("cerrar").addEventListener("click", () => {
+        alert('Cierro sesion');
+        sessionStorage.clear();
+        location.href = 'login.html';
+    });
+});
