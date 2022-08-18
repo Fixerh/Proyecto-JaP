@@ -10,7 +10,7 @@ function login () {
     }
     else {
         sessionStorage.setItem('usuario', usuario);
-        location.href='index.html';
+        location.href='https://fixerh.github.io/Proyecto-JaP/index.html';
     }
 
 }
