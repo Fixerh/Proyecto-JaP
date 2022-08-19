@@ -50,9 +50,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
         document.getElementById('usuario').innerHTML = usuario;
     }
 
-    
-    document.getElementById("cerrar").addEventListener("click", () => {
-        alert('Cierro sesion');
+     document.getElementById("cerrar").addEventListener("click", () => {
+        alert('Sesion Cerrada');
         sessionStorage.clear();
         location.href = 'login.html';
     });

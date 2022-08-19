@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     
     document.getElementById("cerrar").addEventListener("click", () => {
-        alert('Cierro sesion');
+        alert('Sesion Cerrada');
         sessionStorage.clear();
         location.href = 'login.html';
     });
