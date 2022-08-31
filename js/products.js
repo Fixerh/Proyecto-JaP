@@ -1,7 +1,7 @@
 let productos = [];
 let enlace = PRODUCTS_URL + localStorage.getItem('catID') + EXT_TYPE;
-const oAscendenteNombre = "0-9";
-const oDescendenteNombre = "9-0";
+const oAscendentePrecio = "0-9";
+const oDescendentePrecio = "9-0";
 const oVendidos = "Ventas";
 let criterioDeOrdenar = undefined;
 let minCost = undefined;
@@ -9,14 +9,14 @@ let maxCost = undefined;
 
 function ordenar(criteria, array){
     let result = [];
-    if (criteria === oAscendenteNombre)
+    if (criteria === oAscendentePrecio)
     {
         result = array.sort(function(a, b) {
             if ( a.cost < b.cost ){ return -1; }
             if ( a.cost > b.cost ){ return 1; }
             return 0;
         });
-    }else if (criteria === oDescendenteNombre){
+    }else if (criteria === oDescendentePrecio){
         result = array.sort(function(a, b) {
             if ( a.cost > b.cost ){ return -1; }
             if ( a.cost < b.cost ){ return 1; }
@@ -112,12 +112,12 @@ document.addEventListener("DOMContentLoaded", ()=> {
     });
    
     document.getElementById("clasificacionAs").addEventListener("click", ()=> {
-        ordenoYMuestro(oAscendenteNombre);
+        ordenoYMuestro(oAscendentePrecio);
         console.log(productos);
     });
 
     document.getElementById("clasificacionDs").addEventListener("click", ()=> {
-        ordenoYMuestro(oDescendenteNombre);
+        ordenoYMuestro(oDescendentePrecio);
     });
 
     document.getElementById("clasificacionVen").addEventListener("click", ()=> {
