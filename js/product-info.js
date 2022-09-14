@@ -3,7 +3,7 @@ let items = PRODUCT_INFO_URL + PROD_ID + EXT_TYPE;
 let comentarios = PRODUCT_INFO_COMMENTS_URL + PROD_ID + EXT_TYPE;
 let infoProductos = [];
 let infoComentarios =[];
-let today = new Date().toLocaleDateString(undefined, {
+let fecha = new Date().toLocaleDateString(undefined, {
     year: 'numeric',
     month: '2-digit',
     day: '2-digit',
@@ -97,7 +97,7 @@ function nuevoComentario() {
         </div>
     </div>
     <div class="action d-flex justify-content-between mt-2 align-items-center" id='miFecha'>
-            ${today}
+            ${fecha}
     </div>
     <div class="icons position-absolute bottom-0 end-0">
             ${puntaje(estrellasNuevas)}
