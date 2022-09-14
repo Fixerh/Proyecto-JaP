@@ -30,6 +30,10 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
+          <li class="nav-item d-flex" >
+            <a class="btn btn-link" href="/my-profile.html"><span id="usuario"></span></a>
+            <button id="cerrar" class="btn btn-danger btn-bg">Cerrar</button>
+          </li>
           <li class="nav-item">
           </li>
         </ul>
@@ -37,12 +41,62 @@
     </div>
   </nav>
   <main>
+    <br>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+    <h1 id="nombre"></h1>
+    <hr>
+    <br>
+    <h4>Precio</h4>
+    <p id="precio"></p>
+    <h4>Descripcion</h4>
+    <p id="descripcion"></p>
+    <h4>Categoria</h4>
+    <p id="categoria"></p>
+    <h4>Cantidad de vendidos</h4>
+    <p id="vendidos"></p>
+    <h4>Imagenes ilustrativas</h4>
     </div>
-  </main>
+    <div class="container d-flex justify-content-center">
+      <div id="carouselExampleDark" class="carousel carousel-dark slide"data-bs-ride="carousel">
+  
+        <div id="mostrar" class="carousel-inner"></div>
+  
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button> 
+      </div>
+      <hr>
+    </div><br>
+    <div class="container">
+      <h3>Comentarios</h3>
+    </div>
+    <div class="container" id="comentarios">
+    </div>
+    <br>
+    <div class="container">
+      <h3>Comentar</h3>
+      <h5>Tu opinion</h5>
+      <p><textarea  id ="comentario" class ="form-control" placeholder =" Ingresa tu comentario " type =" texto " style="height:146px;" > </textarea></p>
+      <h5>Puntuacion</h5>
+        <select class="form-select" style="width:150px;" id="puntajeComentario">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <br>
+      <input id="comentar" type="submit" value="Enviar" style="width:80px;height:35px;">
+    </div>
+    
+    
+    
+    </main>
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">

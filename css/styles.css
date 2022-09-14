@@ -208,3 +208,8 @@ a.custom-card:hover {
   left: 50%;
   transform: translate(-50%, 0);
 }
+
+#estrellas {
+  color: orange;
+}
+

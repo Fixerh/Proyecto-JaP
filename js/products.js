@@ -45,7 +45,7 @@ function mostrarLista(array){
         if (((minCost == undefined) || (minCost != undefined && parseInt(products.cost) >= minCost)) &&
             ((maxCost == undefined) || (maxCost != undefined && parseInt(products.cost) <= maxCost))){
         htmlContentToAppend += `
-        <div onclick="setCatID(${products.id})" class="list-group-item list-group-item-action cursor-active">
+        <div onclick="setProductID(${products.id})" class="list-group-item list-group-item-action cursor-active">
             <div class="row">
                 <div class="col-3">
                     <img src=" ${products.image} " alt="product image" class="img-thumbnail">
@@ -65,6 +65,11 @@ function mostrarLista(array){
         }
     }
     document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
+}
+
+function setProductID(id) {
+    localStorage.setItem("prodID", id);
+    location.href = "product-info.html";
 }
 
 function busca(productos) {
@@ -89,6 +94,8 @@ function ordenoYMuestro(sortCriteria){
     
     mostrarLista(productos);
 }
+
+
 
 
 
