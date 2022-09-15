@@ -13,8 +13,7 @@ let fecha = new Date().toLocaleDateString(undefined, {
 });
 
     function mostrarImagenes(infoProductos) {
-        let htmlContentToAppend = "";
-            htmlContentToAppend +=`
+        let htmlContentToAppend = `
             <div class="carousel-item active">
             <img src="${infoProductos.images[0]}" class="d-block w-40">
             </div>
