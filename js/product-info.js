@@ -5,7 +5,7 @@ let infoProductos = [];
 let infoComentarios =[];
 
 
-    function mostrarImagenes(infoProductos) {
+function mostrarImagenes(infoProductos) {
         let htmlContentToAppend = `
             <div class="carousel-item active">
             <img src="${infoProductos.images[0]}" class="d-block w-40">
@@ -21,10 +21,9 @@ let infoComentarios =[];
             </div>` 
         document.getElementById('mostrar').innerHTML = htmlContentToAppend;
         
-    }
+}
     
-
-    function puntaje(array){
+function puntaje(array){
         let puntos = "";
     
         for(let i=1; i <= 5; i++){
@@ -36,9 +35,9 @@ let infoComentarios =[];
             }
         }
         return puntos;
-    }
+}
 
-    function infoDelProducto(infoProductos){
+function infoDelProducto(infoProductos){
         let pNombreHTML = document.getElementById('nombre'); 
         pNombreHTML.innerHTML = infoProductos.name;
         let pDescripcionHTML = document.getElementById('descripcion'); 
@@ -50,9 +49,9 @@ let infoComentarios =[];
         let categoryHTML = document.getElementById('categoria'); 
         categoryHTML.innerHTML = infoProductos.category;
     
-    }
+}
 
-    function mostrarComentarios(infoComentarios){
+function mostrarComentarios(infoComentarios){
         let comento = "";
 
     for (let i = 0; i < infoComentarios.length; i++){
@@ -117,7 +116,6 @@ function nuevoComentario() {
     document.getElementById("comentarios").innerHTML += nuevoComment;
 };
 
-
 function relatedProducts(){
     let info = infoProductos.relatedProducts;
     
@@ -144,9 +142,6 @@ function setProductRelID(id) {
     localStorage.setItem("prodID", id);
     location.href = "product-info.html";
 }
-
-
-
 
 document.addEventListener('DOMContentLoaded',()=>{
     getJSONData(items).then(function(resultObj){
