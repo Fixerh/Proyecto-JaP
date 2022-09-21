@@ -107,15 +107,6 @@ document.addEventListener("DOMContentLoaded", ()=> {
             mostrarLista(productos)
         }
         document.getElementById('tittle').innerHTML = `Veras aqui todos los productos de la categoria ` + resultObj.data.catName
-        let usuario = sessionStorage.getItem('usuario');
-        if(usuario == null){
-        alert('No iniciaste sesion, porfavor iniciar sesion para continuar navegando')
-        location.href='login.html';
-        }
-        else {
-        document.getElementById('cerrar').style.display = 'block';
-        document.getElementById('usuario').innerHTML = usuario;
-        }
     });
    
     document.getElementById("clasificacionAs").addEventListener("click", ()=> {
@@ -162,11 +153,6 @@ document.addEventListener("DOMContentLoaded", ()=> {
         mostrarLista(productos);
     });
 
-    document.getElementById("cerrar").addEventListener("click", () => {
-        alert('Sesion Cerrada');
-        sessionStorage.clear();
-        location.href = 'login.html';
-    });
     
     document.getElementById('buscador').addEventListener('keyup', ()=> {
         busca(productos);

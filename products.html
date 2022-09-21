@@ -30,10 +30,15 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item d-flex" >
-            <a class="btn btn-link" href="/my-profile.html"><span id="usuario"></span></a>
-            <button id="cerrar" class="btn btn-danger btn-bg">Cerrar</button>
-          </li>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="usuario" data-bs-toggle="dropdown" aria-expanded="false">
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="/cart.html">Mi Carrito</a></li>
+              <li><a class="dropdown-item" href="/my-profile.html">Mi Perfil</a></li>
+              <li><a class="dropdown-item" id="cerrar">Cerrar Sesion</a></li>
+            </ul>
+          </div>
           <li class="nav-item">
           </li>
         </ul>
@@ -117,6 +122,7 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/products.js"></script>
+  <script src="js/session.js"></script>
 </body>
 
 </html>

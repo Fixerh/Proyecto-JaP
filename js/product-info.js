@@ -3,14 +3,7 @@ let items = PRODUCT_INFO_URL + PROD_ID + EXT_TYPE;
 let comentarios = PRODUCT_INFO_COMMENTS_URL + PROD_ID + EXT_TYPE;
 let infoProductos = [];
 let infoComentarios =[];
-let fecha = new Date().toLocaleDateString(undefined, {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-});
+
 
     function mostrarImagenes(infoProductos) {
         let htmlContentToAppend = `
@@ -27,7 +20,9 @@ let fecha = new Date().toLocaleDateString(undefined, {
             <img src="${infoProductos.images[3]}" class="d-block w-40">
             </div>` 
         document.getElementById('mostrar').innerHTML = htmlContentToAppend;
+        
     }
+    
 
     function puntaje(array){
         let puntos = "";
@@ -86,6 +81,22 @@ function nuevoComentario() {
 
     let comentarioNuevo = document.getElementById("comentario").value;
     let estrellasNuevas = document.getElementById('puntajeComentario').value;
+    let hoy = new Date ();
+    let dia = hoy.getDate();
+    let mes = hoy.getMonth() + 1;
+    let hora = hoy.getHours() + ":" + hoy.getMinutes() + ":" + hoy.getSeconds();
+    if(dia<10){
+        dia= "0"+dia;
+    }
+    if(mes<10){
+        mes= "0"+mes;
+    }
+    if(hora<10){
+        hora= "0"+hora;
+    }
+    
+    fecha = hoy.getFullYear() + "-" + mes + "-" + dia + " " + hora;
+    
     
     let nuevoComment =
     `<div class= "card p-3 bg-white col-md-4 w-auto h-auto">
@@ -106,6 +117,37 @@ function nuevoComentario() {
     document.getElementById("comentarios").innerHTML += nuevoComment;
 };
 
+
+function relatedProducts(){
+    let info = infoProductos.relatedProducts;
+    
+
+    for(let i = 0; i < info.length; i++){
+
+        let htmlContent = '';
+
+        htmlContent += `
+        <div class="col-12 col-lg-6 ">
+                <div class="card border border-1 my-2 bg-light" onclick="setProductRelID(${infoProductos.relatedProducts[i].id})">
+                    <img src="${info[i].image}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title">${info[i].name}</h5>
+                    </div>
+                </div>
+        </div>`
+        
+    document.getElementById("ContenedorProductosRel").innerHTML += htmlContent;
+    }
+}
+
+function setProductRelID(id) {
+    localStorage.setItem("prodID", id);
+    location.href = "product-info.html";
+}
+
+
+
+
 document.addEventListener('DOMContentLoaded',()=>{
     getJSONData(items).then(function(resultObj){
         if (resultObj.status === "ok")
@@ -113,16 +155,9 @@ document.addEventListener('DOMContentLoaded',()=>{
             infoProductos = resultObj.data;
             mostrarImagenes(infoProductos);
             infoDelProducto(infoProductos);
+            relatedProducts(infoProductos)
             
-        }
-        let usuario = sessionStorage.getItem('usuario');
-        if(usuario == null){
-        alert('No iniciaste sesion, porfavor iniciar sesion para continuar navegando')
-        location.href='login.html';
-        }
-        else {
-        document.getElementById('cerrar').style.display = 'block';
-        document.getElementById('usuario').innerHTML = usuario;
+            
         }
         
     })
@@ -133,11 +168,6 @@ document.addEventListener('DOMContentLoaded',()=>{
             mostrarComentarios(infoComentarios)  
         } 
     })
-    document.getElementById("cerrar").addEventListener("click", () => {
-        alert('Sesion Cerrada');
-        sessionStorage.clear();
-        location.href = 'login.html';
-    });
     document.getElementById("comentar").addEventListener("click", () => {
         nuevoComentario()  
     });
